@@ -1,0 +1,25 @@
+s3:
+  bucket_name: "your-s3-bucket-name"
+  raw_data_key: "path/to/your/flight_data.zip"
+
+data:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  final_data_dir: "data/final"
+
+preprocessing:
+  test_size: 0.2
+  random_state: 42
+
+model:
+  type: "xgboost"
+  params:
+    objective: "binary:logistic"
+    eval_metric: "logloss"
+    max_depth: 6
+    learning_rate: 0.1
+    n_estimators: 100
+
+evaluation:
+  metrics: ["accuracy", "f1", "precision", "recall"]
+  cross_validation_folds: 5
